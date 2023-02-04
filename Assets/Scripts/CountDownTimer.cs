@@ -26,6 +26,9 @@ public class CountDownTimer : MonoBehaviour
     [SerializeField] Sprite nightTower;
     [SerializeField] SpriteRenderer towerObject;
 
+    [SerializeField] AudioClip dayAudio;
+    [SerializeField] AudioClip nightAudio;
+    [SerializeField] AudioSource audioSource;
     bool isCycleRunning = false;
     string cycle = "day";
 
@@ -59,21 +62,27 @@ public class CountDownTimer : MonoBehaviour
     IEnumerator CountForChange()
     {
         isCycleRunning = true;
-        yield return new WaitForSeconds(Random.Range(120f, 180f));
+        yield return new WaitForSeconds(Random.Range(5f, 10f));
         if (cycle == "day")
         {
             backgroundObject.sprite = nightBackground;
+            backgroundObject.sortingOrder = -1;
             enemyObject.sprite = nightEnemy;
             playerObject.sprite = nightPlayer;
             towerObject.sprite = nightTower;
+            audioSource.clip = dayAudio;
+            audioSource.volume = 0.6f;
             cycle = "night";
         }
         else if (cycle == "night")
         {
             backgroundObject.sprite = dayBackground;
+            backgroundObject.sortingOrder = -1;
             enemyObject.sprite = dayEnemy;
             playerObject.sprite = dayPlayer;
             towerObject.sprite = dayTower;
+            audioSource.clip = nightAudio;
+            audioSource.volume = 1f;
             cycle = "day";
         }
 
