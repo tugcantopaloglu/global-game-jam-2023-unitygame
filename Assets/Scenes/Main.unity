@@ -332,6 +332,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1336589008}
     - target: {fileID: 8766681949190014045, guid: 1229bd8f9f078474d8eca875daab8b29, type: 3}
+      propertyPath: enemyObject
+      value: 
+      objectReference: {fileID: 3068791987862674297, guid: 1f9687627481e45879ca52f96912616d, type: 3}
+    - target: {fileID: 8766681949190014045, guid: 1229bd8f9f078474d8eca875daab8b29, type: 3}
+      propertyPath: towerObject
+      value: 
+      objectReference: {fileID: 4009706623734441545, guid: 7a3eab3749b9341e3b81b8f8b989a413, type: 3}
+    - target: {fileID: 8766681949190014045, guid: 1229bd8f9f078474d8eca875daab8b29, type: 3}
+      propertyPath: playerObject
+      value: 
+      objectReference: {fileID: 1663731858}
+    - target: {fileID: 8766681949190014045, guid: 1229bd8f9f078474d8eca875daab8b29, type: 3}
       propertyPath: dayBackground
       value: 
       objectReference: {fileID: 21300000, guid: 527be4a81b5d546dbb8f39364713b296, type: 3}
@@ -339,6 +351,10 @@ PrefabInstance:
       propertyPath: nightBackground
       value: 
       objectReference: {fileID: 21300000, guid: d9f5da3853969407397b92ae968bfa66, type: 3}
+    - target: {fileID: 8766681949190014045, guid: 1229bd8f9f078474d8eca875daab8b29, type: 3}
+      propertyPath: backgroundObject
+      value: 
+      objectReference: {fileID: 955673374}
     - target: {fileID: 8766681949332446880, guid: 1229bd8f9f078474d8eca875daab8b29, type: 3}
       propertyPath: m_LocalScale.x
       value: 2
@@ -1552,6 +1568,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1da28d71f4622845a1a1b6dff35f4f4, type: 3}
+--- !u!212 &1663731858 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 5753071303327484442, guid: e1da28d71f4622845a1a1b6dff35f4f4, type: 3}
+  m_PrefabInstance: {fileID: 1663731857}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1695063013
 GameObject:
   m_ObjectHideFlags: 0
