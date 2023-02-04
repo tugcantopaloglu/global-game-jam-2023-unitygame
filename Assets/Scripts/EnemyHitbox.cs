@@ -10,7 +10,7 @@ public class EnemyHitbox : Collidable
 
     protected override void OnCollide(Collider2D coll)
     {
-        if (coll.name == "Player" && coll.tag == "Fighter")
+        if (coll.name == "Player" && coll.tag == "Player")
         {
             //Create a new damage object, before sending it to the player
             Damage dmg = new Damage
@@ -20,7 +20,6 @@ public class EnemyHitbox : Collidable
                 origin = transform.position,
                 pushForce = pushForce
             };
-            Debug.Log("Player 1 hit aldı");
 
             coll.SendMessage("ReceiveDamage", dmg);
         }

@@ -2,22 +2,48 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class CountDownTimer : MonoBehaviour
 {
     [SerializeField] Text countDownText;
     private static float currentScore = 0f;
     
+    //Day night change
+    [SerializeField] Sprite nightBackground;
+    [SerializeField] Sprite dayBackground;
+    [SerializeField] SpriteRenderer backgroundObject;
+
+    [SerializeField] Sprite dayEnemy;
+    [SerializeField] Sprite nightEnemy;
+    [SerializeField] SpriteRenderer enemyObject;
+
+    [SerializeField] Sprite dayPlayer;
+    [SerializeField] Sprite nightPlayer;
+    [SerializeField] SpriteRenderer playerObject;
+
+    [SerializeField] Sprite dayTower;
+    [SerializeField] Sprite nightTower;
+    [SerializeField] SpriteRenderer towerObject;
+
+    bool isCycleRunning = false;
+    string cycle = "day";
+
 
     private void Start()
     {
-        
         StartCoroutine(AddScore());
     }
 
     private void Update()
     {
         countDownText.text = ("Score: " + currentScore.ToString());
+
+        if(!isCycleRunning)
+        {
+            StartCoroutine(CountForChange());
+        }
+
     }
 
     IEnumerator AddScore()
@@ -28,6 +54,30 @@ public class CountDownTimer : MonoBehaviour
             currentScore += 10;
         }
         
+    }
+
+    IEnumerator CountForChange()
+    {
+        isCycleRunning = true;
+        yield return new WaitForSeconds(Random.Range(120f, 180f));
+        if (cycle == "day")
+        {
+            backgroundObject.sprite = nightBackground;
+            enemyObject.sprite = nightEnemy;
+            playerObject.sprite = nightPlayer;
+            towerObject.sprite = nightTower;
+            cycle = "night";
+        }
+        else if (cycle == "night")
+        {
+            backgroundObject.sprite = dayBackground;
+            enemyObject.sprite = dayEnemy;
+            playerObject.sprite = dayPlayer;
+            towerObject.sprite = dayTower;
+            cycle = "day";
+        }
+
+        isCycleRunning = false;
     }
     public float GetScore()
     {
