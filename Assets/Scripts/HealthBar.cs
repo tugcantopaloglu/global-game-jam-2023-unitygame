@@ -1,23 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
 {
-    [SerializeField] GameObject bar;
-    private float damageScale = 0.2f;
+    public Slider slider;
+    public void setMaxHealth(int health)
+    {
+        slider.maxValue = health;
+        slider.value = health;
+    }
 
-    private void Update()
+    public void setHealth(int health)
     {
-        Debug.Log(bar);
+        slider.value = health;
     }
-    public void setSize()
-    {
-        if(bar!=null)
-        { 
-        Vector3 currentScale = bar.transform.localScale;
-        currentScale.x -= damageScale;
-        bar.transform.localScale = currentScale;
-        }
-    }
+
 }
