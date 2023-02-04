@@ -30,7 +30,8 @@ public class Player : Mover
         }
         else
         {
-            xSpeed = 2f;
+            this.xSpeed = 2f;
+            Debug.Log("pressed");
         }
     }
 
@@ -51,6 +52,6 @@ public class Player : Mover
 
     void Run()
     {
-        xSpeed = 5f;
+        this.xSpeed = 5f;
     }
 }

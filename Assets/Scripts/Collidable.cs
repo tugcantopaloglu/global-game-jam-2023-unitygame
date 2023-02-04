@@ -31,9 +31,10 @@ public class Collidable : MonoBehaviour
             hits[i] = null;
         }
     }
-
     protected virtual void OnCollide(Collider2D coll)
     {
 
     }
+
+
 }

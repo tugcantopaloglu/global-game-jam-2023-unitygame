@@ -5,13 +5,14 @@ public class EnemySpawn : MonoBehaviour
     public GameObject enemyPrefab;
     public float spawnInterval = 2.0f;
     public float spawnRadius = 5.0f;
-    public int maxEnemies = 6;
-    public float minDistance = 3.0f;
+    public float maxEnemies = 6;
+    public float minDistance = 4.0f;
 
     private float spawnTimer = 0.0f;
 
     private void Update()
     {
+        maxEnemies += Time.deltaTime/15;
         int enemyCount = GameObject.FindGameObjectsWithTag("Enemy").Length;
         if (enemyCount < maxEnemies)
         {
