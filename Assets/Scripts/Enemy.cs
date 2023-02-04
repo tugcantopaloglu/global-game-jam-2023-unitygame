@@ -23,38 +23,12 @@ public class Enemy : Mover
     protected override void Start()
     {
         base.Start();
-        playerTransform = GameManager.instance.player.transform;
         startingPosition = transform.position;
         hitbox = transform.GetChild(0).GetComponent<BoxCollider2D>();
     }
 
     private void FixedUpdate()
     {
-        //Is the player in range?
-        if (Vector3.Distance(playerTransform.position, startingPosition) < chaseLenght)
-        {
-            if (Vector3.Distance(playerTransform.position, startingPosition) < triggerLenght)
-                chasing = true;
-
-            if (chasing)
-            {
-                if (!collidingWithPlayer)
-                {
-                    UpdateMotor((playerTransform.position - transform.position).normalized);
-                }
-            }
-            else
-            {
-                UpdateMotor(startingPosition - transform.position);
-            }
-        }
-        else
-        {
-            UpdateMotor(startingPosition - transform.position);
-            chasing = false;
-        }
-
-
         //Collision work
         collidingWithPlayer = false;
         boxCollider.OverlapCollider(filter, hits);
@@ -79,8 +53,8 @@ public class Enemy : Mover
     protected override void Death()
     {
         Destroy(gameObject);
-        GameManager.instance.experience += xpValue;
-        GameManager.instance.ShowText("+" + xpValue, 30, Color.magenta, transform.position, Vector3.up * 40, 1.0f);
+        //GameManager.instance.experience += xpValue;
+        //GameManager.instance.ShowText("+" + xpValue, 64, Color.magenta, transform.position, Vector3.up * 40, 1.0f);
     }
 
 }

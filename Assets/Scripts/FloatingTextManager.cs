@@ -41,6 +41,7 @@ public class FloatingTextManager : MonoBehaviour
         floatingText.go.transform.position = Camera.main.WorldToScreenPoint(position); // Transfer world space to screen space so we can use it in the UI
         floatingText.motion = motion;
         floatingText.duration = duration;
+        Debug.Log(fontSize);
 
         floatingText.Show();
     }

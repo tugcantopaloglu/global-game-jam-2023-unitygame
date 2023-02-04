@@ -4,14 +4,40 @@ using UnityEngine;
 
 public class Player : Mover
 {
+    public GameObject towerPrefab; // The prefab for the tower to be spawned
+    private BoxCollider2D towerCollider;
+
     private void FixedUpdate()
     {
         float x = Input.GetAxisRaw("Horizontal");
         float y = Input.GetAxisRaw("Vertical");
 
-        if (x != 10 && x != -3.6 && y != 3.6 && y != -3.6)
+       
+        UpdateMotor(new Vector3(x, y, 0));
+        
+    }
+  
+    // Update is called once per frame
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space)) // If the spacebar is pressed
         {
-            UpdateMotor(new Vector3(x, y, 0));
+            SpawnTower(); // Spawn the tower
         }
+    }
+
+    // Spawn a tower and activate its collider after 3 seconds
+    void SpawnTower()
+    {
+        GameObject tower = Instantiate(towerPrefab, transform.position, transform.rotation); // Spawn the tower
+        towerCollider = tower.GetComponent<BoxCollider2D>(); // Get the collider component of the tower
+
+        Invoke("ActivateTowerCollider", 3f); // Activate the collider after 3 seconds
+    }
+
+    // Activate the tower collider
+    void ActivateTowerCollider()
+    {
+        towerCollider.enabled = true; // Enable the collider
     }
 }
