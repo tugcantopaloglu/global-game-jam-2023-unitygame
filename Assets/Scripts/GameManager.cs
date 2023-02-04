@@ -64,8 +64,8 @@ public class GameManager : MonoBehaviour
         //Change player skin
 
         //
-        gold = int.Parse(data[1]);
-        experience = int.Parse(data[2]);
+        //gold = int.Parse(data[1]);
+        //experience = int.Parse(data[2]);
 
         Debug.Log("Load");
     }
