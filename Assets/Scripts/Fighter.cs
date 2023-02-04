@@ -21,6 +21,7 @@ public class Fighter : MonoBehaviour
     {
         if (Time.time - lastImmune > immuneTime)
         {
+
             lastImmune = Time.time;
             hitpoint -= dmg.damageAmount;
             pushDirection = (transform.position - dmg.origin).normalized * dmg.pushForce;

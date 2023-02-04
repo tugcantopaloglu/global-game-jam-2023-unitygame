@@ -20,7 +20,7 @@ public abstract class Mover : Fighter
     {
         //Reset MoveDelta
         moveDelta = new Vector3(input.x * xSpeed, input.y * ySpeed, 0);
-
+        
         //Swap sprite direction, wether you're going to right or left
         if (moveDelta.x > 0)
             transform.localScale = new Vector3(6, 6, 6);

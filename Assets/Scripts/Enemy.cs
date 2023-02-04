@@ -14,6 +14,7 @@ public class Enemy : Mover
     private bool collidingWithPlayer;
     private Transform playerTransform;
     private Vector3 startingPosition;
+    public HealthBar healthBar;
 
 
     //Hitbox
@@ -24,14 +25,20 @@ public class Enemy : Mover
 
     protected override void Start()
     {
-
+        hitpoint = maxHitpoint;
+        healthBar.setMaxHealth(hitpoint);
         base.Start();
         startingPosition = transform.position;
         hitbox = transform.GetChild(0).GetComponent<BoxCollider2D>();
     }
+    private void Update()
+    {
+        healthBar.setHealth(hitpoint);
+    }
 
     private void FixedUpdate()
     {
+        
         //Collision work
         collidingWithPlayer = false;
         boxCollider.OverlapCollider(filter, hits);
@@ -46,8 +53,6 @@ public class Enemy : Mover
             {
                 collidingWithPlayer = true;
             }
-
-
             //The array is not cleaned up, so we do it ourself
             hits[i] = null;
         }
