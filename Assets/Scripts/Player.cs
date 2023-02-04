@@ -9,6 +9,9 @@ public class Player : Mover
         float x = Input.GetAxisRaw("Horizontal");
         float y = Input.GetAxisRaw("Vertical");
 
-        UpdateMotor(new Vector3(x, y, 0));
+        if (x != 10 && x != -3.6 && y != 3.6 && y != -3.6)
+        {
+            UpdateMotor(new Vector3(x, y, 0));
+        }
     }
 }
