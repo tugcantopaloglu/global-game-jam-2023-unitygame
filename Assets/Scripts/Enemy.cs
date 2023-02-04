@@ -21,6 +21,7 @@ public class Enemy : Mover
     public ContactFilter2D filter;
     private BoxCollider2D hitbox;
     private Collider2D[] hits = new Collider2D[10];
+    private CountDownTimer timer = new CountDownTimer();
 
     protected override void Start()
     {
@@ -59,7 +60,9 @@ public class Enemy : Mover
 
     protected override void Death()
     {
+        timer.AddPointToScore(100);
         Destroy(gameObject);
+        
         //GameManager.instance.experience += xpValue;
         //GameManager.instance.ShowText("+" + xpValue, 64, Color.magenta, transform.position, Vector3.up * 40, 1.0f);
     }

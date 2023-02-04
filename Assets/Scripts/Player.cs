@@ -6,6 +6,8 @@ public class Player : Mover
 {
     public GameObject towerPrefab; // The prefab for the tower to be spawned
     private BoxCollider2D towerCollider;
+    private CountDownTimer timer = new CountDownTimer();
+    [SerializeField] float towerPrice = 500f;
 
     private void FixedUpdate()
     {
@@ -22,8 +24,9 @@ public class Player : Mover
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space)) // If the spacebar is pressed
+        if (Input.GetKeyDown(KeyCode.Space) && timer.GetScore()>=towerPrice) // If the spacebar is pressed
         {
+            timer.DeletePointFromScore(towerPrice);
             SpawnTower(); // Spawn the tower
         }
         if (Input.GetKey(KeyCode.LeftShift))

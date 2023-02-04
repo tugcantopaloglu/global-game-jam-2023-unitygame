@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class Weapon : Collidable
 {
@@ -13,8 +14,11 @@ public class Weapon : Collidable
     private SpriteRenderer spriteRenderer;
 
     //Swing
-    private float cooldown = 0.05f;
+    private float cooldown = 0f;
     private float lastSwing;
+
+    //dotween
+    private Sequence sequence;
 
     protected override void Start()
     {
@@ -26,7 +30,7 @@ public class Weapon : Collidable
     {
         base.Update();
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             if (Time.time - lastSwing > cooldown)
             {
@@ -38,12 +42,16 @@ public class Weapon : Collidable
 
     private void Swing()
     {
-        Debug.Log("Swing");
+        sequence = DOTween.Sequence();
+        sequence.Append(transform.DORotate(new Vector3(0.07f, -0.05f, -110f), 0.2f, RotateMode.Fast).SetEase(Ease.InOutBounce));
+        sequence.Append(transform.DORotate(new Vector3(0f, 0f,0f), 0.2f));
+        
+
     }
 
     protected override void OnCollide(Collider2D coll)
     {
-        if (coll.tag == "Fighter")
+        if (coll.tag == "Enemy")
         {
             if (coll.name == "Player")
             {
