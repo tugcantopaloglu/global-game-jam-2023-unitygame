@@ -22,6 +22,7 @@ public class Enemy : Mover
 
     protected override void Start()
     {
+
         base.Start();
         startingPosition = transform.position;
         hitbox = transform.GetChild(0).GetComponent<BoxCollider2D>();

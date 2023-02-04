@@ -7,12 +7,13 @@ public abstract class Mover : Fighter
     protected BoxCollider2D boxCollider;
     protected Vector3 moveDelta;
     protected RaycastHit2D hit;
-    protected float ySpeed = 1.5f;
+    protected float ySpeed = 3.0f;
     protected float xSpeed = 2.0f;
+    protected SpriteRenderer spriteRenderer;
     protected virtual void Start()
     {
         boxCollider = GetComponent<BoxCollider2D>();
-
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     protected virtual void UpdateMotor(Vector3 input)

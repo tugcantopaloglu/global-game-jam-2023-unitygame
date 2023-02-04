@@ -14,6 +14,8 @@ public class Player : Mover
 
        
         UpdateMotor(new Vector3(x, y, 0));
+
+
         
     }
   
@@ -24,14 +26,17 @@ public class Player : Mover
         {
             SpawnTower(); // Spawn the tower
         }
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftShift))
         {
-            Run();
+            xSpeed = 8f;
+            ySpeed = 8f;
+            spriteRenderer.color = new Color(0.514151f, 1f, 0.9759827f);
         }
         else
         {
-            this.xSpeed = 2f;
-            Debug.Log("pressed");
+            xSpeed = 5f;
+            ySpeed = 5f;
+            spriteRenderer.color = new Color(1, 1, 1);
         }
     }
 
@@ -48,10 +53,5 @@ public class Player : Mover
     void ActivateTowerCollider()
     {
         towerCollider.enabled = true; // Enable the collider
-    }
-
-    void Run()
-    {
-        this.xSpeed = 5f;
     }
 }
