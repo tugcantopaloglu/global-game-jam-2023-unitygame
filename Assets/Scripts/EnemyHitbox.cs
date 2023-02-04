@@ -15,10 +15,12 @@ public class EnemyHitbox : Collidable
             //Create a new damage object, before sending it to the player
             Damage dmg = new Damage
             {
+                
                 damageAmount = damage,
                 origin = transform.position,
                 pushForce = pushForce
             };
+            Debug.Log("Player 1 hit aldı");
 
             coll.SendMessage("ReceiveDamage", dmg);
         }
