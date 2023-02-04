@@ -675,6 +675,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5753071303327484442, guid: e1da28d71f4622845a1a1b6dff35f4f4, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5753071303327484445, guid: e1da28d71f4622845a1a1b6dff35f4f4, type: 3}
       propertyPath: m_RootOrder
       value: 1
