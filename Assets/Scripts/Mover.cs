@@ -7,8 +7,8 @@ public abstract class Mover : Fighter
     protected BoxCollider2D boxCollider;
     protected Vector3 moveDelta;
     protected RaycastHit2D hit;
-    protected float ySpeed = 0.75f;
-    protected float xSpeed = 1.0f;
+    protected float ySpeed = 1.5f;
+    protected float xSpeed = 2.0f;
     protected virtual void Start()
     {
         boxCollider = GetComponent<BoxCollider2D>();

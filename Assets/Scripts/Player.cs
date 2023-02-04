@@ -24,6 +24,14 @@ public class Player : Mover
         {
             SpawnTower(); // Spawn the tower
         }
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            Run();
+        }
+        else
+        {
+            xSpeed = 2f;
+        }
     }
 
     // Spawn a tower and activate its collider after 3 seconds
@@ -39,5 +47,10 @@ public class Player : Mover
     void ActivateTowerCollider()
     {
         towerCollider.enabled = true; // Enable the collider
+    }
+
+    void Run()
+    {
+        xSpeed = 5f;
     }
 }
