@@ -15,6 +15,7 @@ public class Enemy : Mover
     private Transform playerTransform;
     private Vector3 startingPosition;
 
+
     //Hitbox
     public ContactFilter2D filter;
     private BoxCollider2D hitbox;

@@ -13,6 +13,7 @@ public class Tower : MonoBehaviour
     void Start()
     {
         InvokeRepeating("UpdateTarget", 0f, 0.5f); // Find a new target every 0.5 seconds
+       
     }
 
     // Update is called once per frame
@@ -25,6 +26,7 @@ public class Tower : MonoBehaviour
 
         if (fireCountdown <= 0f) // If the tower is ready to fire
         {
+
             Shoot();
             fireCountdown = 1f / fireRate; // Reset the fire countdown
         }
@@ -71,6 +73,7 @@ public class Tower : MonoBehaviour
         // Do damage to the target
         target.SendMessage("ReceiveDamage", dmg);
         Debug.Log("hit"+ dmg);
+        
     }
 
     // Draw the tower's range
