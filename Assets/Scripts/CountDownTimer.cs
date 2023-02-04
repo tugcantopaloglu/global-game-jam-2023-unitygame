@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class CountDownTimer : MonoBehaviour
 {
     [SerializeField] Text countDownText;
-    private float currentScore = 0f;
+    private static float currentScore = 0f;
     
 
     private void Start()
@@ -17,8 +17,8 @@ public class CountDownTimer : MonoBehaviour
 
     private void Update()
     {
-        
-   }
+        countDownText.text = ("Score: " + currentScore.ToString());
+    }
 
     IEnumerator AddScore()
     {
@@ -26,9 +26,22 @@ public class CountDownTimer : MonoBehaviour
         {
             yield return new WaitForSeconds(5f);
             currentScore += 10;
-            countDownText.text = ("Score: " + currentScore.ToString());
         }
         
+    }
+    public float GetScore()
+    {
+        return currentScore;
+    }
+
+    public void AddPointToScore(float score)
+    {
+        currentScore += score;
+    }
+
+    public void DeletePointFromScore(float score)
+    {
+        currentScore -= score;
     }
 }
 
