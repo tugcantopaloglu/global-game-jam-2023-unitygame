@@ -22,9 +22,9 @@ public abstract class Mover : Fighter
 
         //Swap sprite direction, wether you're going to right or left
         if (moveDelta.x > 0)
-            transform.localScale = new Vector3(5, 5, 5);
+            transform.localScale = new Vector3(1, 1, 1);
         else if (moveDelta.x < 0)
-            transform.localScale = new Vector3(-5, 5, 5);
+            transform.localScale = new Vector3(-1, 1, 1);
 
         //Add push vector, if any
         moveDelta += pushDirection;
