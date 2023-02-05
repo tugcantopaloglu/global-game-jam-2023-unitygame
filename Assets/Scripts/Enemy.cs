@@ -25,7 +25,7 @@ public class Enemy : Mover
 
     protected override void Start()
     {
-        hitpoint = maxHitpoint;
+        //hitpoint = maxHitpoint;
         healthBar.setMaxHealth(hitpoint);
         base.Start();
         startingPosition = transform.position;

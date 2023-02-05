@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : Mover
 {
@@ -9,6 +10,8 @@ public class Player : Mover
     private CountDownTimer timer = new CountDownTimer();
     [SerializeField] float towerPrice = 500f;
     public HealthBar healthBar;
+    public Canvas Endcanvas;
+    public Canvas Startcanvas;
 
 
     private void FixedUpdate()
@@ -30,6 +33,15 @@ public class Player : Mover
     {
         Debug.Log(hitpoint);
         healthBar.setHealth(hitpoint);
+        if(hitpoint <= 0)
+        {
+            EndScene();
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
+                Endcanvas.gameObject.SetActive(false);
+                RestartGame();
+            }
+        }
         if (Input.GetKeyDown(KeyCode.Space) && timer.GetScore()>=towerPrice) // If the spacebar is pressed
         {
             timer.DeletePointFromScore(towerPrice);
@@ -62,5 +74,18 @@ public class Player : Mover
     void ActivateTowerCollider()
     {
         towerCollider.enabled = true; // Enable the collider
+    }
+
+        public void EndScene()
+        {
+            Time.timeScale = 0;
+            Endcanvas.gameObject.SetActive(true);
+
+        }
+        public void RestartGame()
+        {
+            
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            Startcanvas.gameObject.SetActive(true);
     }
 }
