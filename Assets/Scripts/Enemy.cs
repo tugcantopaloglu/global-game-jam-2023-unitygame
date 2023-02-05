@@ -23,6 +23,7 @@ public class Enemy : Mover
     private Collider2D[] hits = new Collider2D[10];
     private CountDownTimer timer = new CountDownTimer();
 
+
     protected override void Start()
     {
         hitpoint = maxHitpoint;
@@ -60,7 +61,15 @@ public class Enemy : Mover
 
     protected override void Death()
     {
-        timer.AddPointToScore(100);
+        if (timer.GetCycle() == "day")
+        {
+            timer.AddPointToScore(100);
+        }
+        else
+        {
+            timer.AddPointToScore(200);
+        }
+
         Destroy(gameObject);
         
         //GameManager.instance.experience += xpValue;

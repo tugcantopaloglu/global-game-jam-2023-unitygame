@@ -43,8 +43,7 @@ public class Weapon : Collidable
     private void Swing()
     {
         sequence = DOTween.Sequence();
-        sequence.Append(transform.DORotate(new Vector3(0.07f, -0.05f, -110f), 0.2f, RotateMode.Fast).SetEase(Ease.InOutBounce));
-        sequence.Append(transform.DORotate(new Vector3(0f, 0f,0f), 0.2f));
+        sequence.Append(transform.DORotate(new Vector3(0.07f, -0.05f, 10f), 0.4f, RotateMode.FastBeyond360).SetEase(Ease.Linear));
         
 
     }

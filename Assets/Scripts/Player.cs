@@ -10,7 +10,6 @@ public class Player : Mover
     [SerializeField] float towerPrice = 500f;
     public HealthBar healthBar;
 
-
     private void FixedUpdate()
     {
         
@@ -36,14 +35,30 @@ public class Player : Mover
         }
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            xSpeed = 8f;
-            ySpeed = 8f;
+            if(timer.GetCycle() == "day")
+            {
+                xSpeed = 8f;
+                ySpeed = 8f;
+            }
+            else
+            {
+                xSpeed = 12f;
+                ySpeed = 12f;
+            }
             spriteRenderer.color = new Color(0.514151f, 1f, 0.9759827f);
         }
         else
         {
-            xSpeed = 5f;
-            ySpeed = 5f;
+            if (timer.GetCycle() == "day")
+            {
+                xSpeed = 5f;
+                ySpeed = 5f;
+            }
+            else
+            {
+                xSpeed = 8f;
+                ySpeed = 8f;
+            }
             spriteRenderer.color = new Color(1, 1, 1);
         }
     }

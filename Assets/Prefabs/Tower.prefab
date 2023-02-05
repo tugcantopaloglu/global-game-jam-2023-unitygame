@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 4009706623734441544}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.0024, y: 1.4888, z: 0}
-  m_LocalScale: {x: 1.8827243, y: 2.9125528, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -73,15 +73,15 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 380714385
+  m_SortingLayer: 1
   m_SortingOrder: 1
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 3.92, y: 4.05}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
@@ -99,10 +99,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 681c1be7319994125a3677762de47592, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 733847472090908657, guid: 1f9687627481e45879ca52f96912616d, type: 3}
+  dayTarget: {fileID: 0}
   range: 3.5
   fireRate: 1
-  damage: 1
+  damage: 20
+  nightTarget: {fileID: 0}
 --- !u!61 &4088764944830326681
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -116,18 +117,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.585207, y: 0.009143949}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
+    oldSize: {x: 3.92, y: 4.05}
+    newSize: {x: 3.92, y: 4.05}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2.755621, y: 3.4322665}
   m_EdgeRadius: 0
 --- !u!50 &-2577612507556401845
 Rigidbody2D:

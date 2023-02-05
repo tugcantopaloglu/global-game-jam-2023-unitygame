@@ -2,12 +2,13 @@ using UnityEngine;
 
 public class Tower : MonoBehaviour
 {
-    [SerializeField] Transform target; // The enemy target
+    [SerializeField] Transform dayTarget; // The enemy target
     [SerializeField] float range = 15f; // The range of the tower
     [SerializeField] float fireRate = 1f; // The fire rate of the tower
     [SerializeField] int damage = 50; // The damage dealt by the tower
-
+    [SerializeField] Transform nightTarget;
     private float fireCountdown = 1f; // The countdown until the tower can fire again
+    private CountDownTimer timer = new CountDownTimer();
 
     // Use this for initialization
     void Start()
@@ -19,10 +20,22 @@ public class Tower : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (target == null) // If there is no target
+        if (timer.GetCycle() == "day")
+        {
+            fireRate = 1.5f;
+            damage = 20;
+        }
+        else if (timer.GetCycle() == "night")
+        {
+            fireRate = 2f;
+            damage = 15;
+        }
+
+        if (dayTarget == null && nightTarget == null) // If there is no target
         {
             return;
         }
+
 
         if (fireCountdown <= 0f) // If the tower is ready to fire
         {
@@ -37,7 +50,16 @@ public class Tower : MonoBehaviour
     // Find a new target
     void UpdateTarget()
     {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy"); // Find all the enemies
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        if (timer.GetCycle() == "day")
+        {
+            enemies = GameObject.FindGameObjectsWithTag("Enemy"); // Find all the enemies
+        }
+        else if(timer.GetCycle() == "night")
+        {
+            enemies = GameObject.FindGameObjectsWithTag("Player"); // Find all the enemies
+        }
+
         float shortestDistance = Mathf.Infinity; // The shortest distance to an enemy
         GameObject nearestEnemy = null; // The nearest enemy
 
@@ -53,11 +75,20 @@ public class Tower : MonoBehaviour
 
         if (nearestEnemy != null && shortestDistance <= range) // If there is a target in range
         {
-            target = nearestEnemy.transform; // Set the target
+            if (timer.GetCycle() == "day")
+            {
+                dayTarget = nearestEnemy.transform; // Set the target
+            }
+            else if (timer.GetCycle() == "night")
+            {
+                nightTarget = nearestEnemy.transform; // Set the target
+            }
+
         }
         else
         {
-            target = null; // Clear the target
+            dayTarget = null; // Clear the target
+            nightTarget = null;
         }
     }
 
@@ -71,8 +102,14 @@ public class Tower : MonoBehaviour
             pushForce = 2f
         };
         // Do damage to the target
-        target.SendMessage("ReceiveDamage", dmg);
-        Debug.Log("hit"+ dmg);
+        if (timer.GetCycle() == "day")
+        {
+            dayTarget.SendMessage("ReceiveDamage", dmg);
+        }
+        else if (timer.GetCycle() == "night")
+        {
+            nightTarget.SendMessage("ReceiveDamage", dmg);
+        }
         
     }
 

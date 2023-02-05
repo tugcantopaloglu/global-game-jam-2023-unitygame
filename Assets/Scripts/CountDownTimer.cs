@@ -31,7 +31,7 @@ public class CountDownTimer : MonoBehaviour
     [SerializeField] AudioClip nightAudio;
     [SerializeField] AudioSource audioSource;
     bool isCycleRunning = false;
-    string cycle = "day";
+    public static string cycle = "day";
 
 
     private void Start()
@@ -73,8 +73,9 @@ public class CountDownTimer : MonoBehaviour
             enemyObject.sprite = nightEnemy;
             playerObject.sprite = nightPlayer;
             towerObject.sprite = nightTower;
-            audioSource.clip = dayAudio;
+            audioSource.clip = nightAudio;
             audioSource.volume = 0.6f;
+            audioSource.Play();
             cycle = "night";
         }
         else if (cycle == "night")
@@ -84,8 +85,9 @@ public class CountDownTimer : MonoBehaviour
             enemyObject.sprite = dayEnemy;
             playerObject.sprite = dayPlayer;
             towerObject.sprite = dayTower;
-            audioSource.clip = nightAudio;
+            audioSource.clip = dayAudio;
             audioSource.volume = 1f;
+            audioSource.Play();
             cycle = "day";
         }
 
@@ -104,6 +106,11 @@ public class CountDownTimer : MonoBehaviour
     public void DeletePointFromScore(float score)
     {
         currentScore -= score;
+    }
+
+    public string GetCycle()
+    {
+        return cycle;
     }
 }
 
