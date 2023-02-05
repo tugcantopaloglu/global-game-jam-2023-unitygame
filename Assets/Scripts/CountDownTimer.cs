@@ -65,7 +65,7 @@ public class CountDownTimer : MonoBehaviour
     IEnumerator CountForChange()
     {
         isCycleRunning = true;
-        yield return new WaitForSeconds(Random.Range(5f, 10f));
+        yield return new WaitForSeconds(Random.Range(60f, 80f));
         if (cycle == "day")
         {
             backgroundObject.sprite = nightBackground;

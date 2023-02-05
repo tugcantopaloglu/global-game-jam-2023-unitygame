@@ -17,9 +17,6 @@ public class Weapon : Collidable
     private float cooldown = 0f;
     private float lastSwing;
 
-    //dotween
-    private Sequence sequence;
-
     protected override void Start()
     {
         base.Start();
@@ -42,10 +39,7 @@ public class Weapon : Collidable
 
     private void Swing()
     {
-        sequence = DOTween.Sequence();
-        sequence.Append(transform.DORotate(new Vector3(0.07f, -0.05f, 10f), 0.4f, RotateMode.FastBeyond360).SetEase(Ease.Linear));
-        
-
+        transform.DORotate(new Vector3(0f, 0f, 360f), 0.4f, RotateMode.FastBeyond360).SetRelative(true).SetEase(Ease.Linear);
     }
 
     protected override void OnCollide(Collider2D coll)
