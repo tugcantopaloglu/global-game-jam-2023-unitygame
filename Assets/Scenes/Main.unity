@@ -1392,7 +1392,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1932,6 +1932,10 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: 380714385
       objectReference: {fileID: 0}
+    - target: {fileID: 5753071303327484443, guid: e1da28d71f4622845a1a1b6dff35f4f4, type: 3}
+      propertyPath: bloodFx
+      value: 
+      objectReference: {fileID: 149344, guid: 617378de28fbaa64c96485d5b0d9169b, type: 3}
     - target: {fileID: 5753071303327484443, guid: e1da28d71f4622845a1a1b6dff35f4f4, type: 3}
       propertyPath: hitpoint
       value: 200
@@ -2575,14 +2579,14 @@ MonoBehaviour:
   nightBackground: {fileID: 21300000, guid: d9f5da3853969407397b92ae968bfa66, type: 3}
   dayBackground: {fileID: 21300000, guid: 527be4a81b5d546dbb8f39364713b296, type: 3}
   backgroundObject: {fileID: 955673374}
-  dayEnemy: {fileID: 0}
-  nightEnemy: {fileID: 0}
+  dayEnemy: {fileID: 21300000, guid: ef7dc8bdacaf85248862bec17e61dd58, type: 3}
+  nightEnemy: {fileID: 21300000, guid: 6e6733688b7642a429f6ee3340261f17, type: 3}
   enemyObject: {fileID: 3068791987862674297, guid: 1f9687627481e45879ca52f96912616d, type: 3}
   dayPlayer: {fileID: 0}
   nightPlayer: {fileID: 0}
   playerObject: {fileID: 1663731858}
-  dayTower: {fileID: 0}
-  nightTower: {fileID: 0}
+  dayTower: {fileID: 21300000, guid: e401139c287f4be4796b310fbbe1b08f, type: 3}
+  nightTower: {fileID: 21300000, guid: 597ef19b35dd60f40a9bb6ee30fd47be, type: 3}
   towerObject: {fileID: 4009706623734441545, guid: 7a3eab3749b9341e3b81b8f8b989a413, type: 3}
   dayAudio: {fileID: 8300000, guid: 5e8b83d9c0ec3a64ab57994a141cb98c, type: 3}
   nightAudio: {fileID: 8300000, guid: c2f80b79698cd4d4099a8341de989f83, type: 3}

@@ -9,12 +9,12 @@ public class Tower : MonoBehaviour
     [SerializeField] Transform nightTarget;
     private float fireCountdown = 1f; // The countdown until the tower can fire again
     private CountDownTimer timer = new CountDownTimer();
-
+    Animator animator;
     // Use this for initialization
     void Start()
     {
         InvokeRepeating("UpdateTarget", 0f, 0.5f); // Find a new target every 0.5 seconds
-       
+        animator = gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -95,6 +95,7 @@ public class Tower : MonoBehaviour
     // Shoot at the target
     void Shoot()
     {
+        animator.SetTrigger("activTrigger");
         Damage dmg = new Damage
         {
             damageAmount = damage,

@@ -16,6 +16,9 @@ public class Fighter : MonoBehaviour
     //Push
     protected Vector3 pushDirection;
 
+    //Particle Effect
+    [SerializeField] GameObject bloodFx;
+
     //All fighters can ReceiveDamage / Die
     protected virtual void ReceiveDamage(Damage dmg)
     {
@@ -29,10 +32,17 @@ public class Fighter : MonoBehaviour
             GameManager.instance.ShowText(dmg.damageAmount.ToString(), 20, Color.red, transform.position, Vector3.zero, 0.6f);
             if (hitpoint <= 0)
             {
+                Bleed();
                 hitpoint = 0;
                 Death();
             }
         }
+    }
+
+    private void Bleed()
+    {
+        GameObject blood = Instantiate(bloodFx, transform.position, Quaternion.identity);
+        blood.GetComponent<ParticleSystem>().Play();
     }
 
     protected virtual void Death() { }
