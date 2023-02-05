@@ -12,7 +12,9 @@ public class Player : Mover
     public HealthBar healthBar;
     public Canvas Endcanvas;
     public Canvas Startcanvas;
-
+    [SerializeField] Animator animator;
+    
+    
     private void FixedUpdate()
     {
         
@@ -101,5 +103,35 @@ public class Player : Mover
             
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             Startcanvas.gameObject.SetActive(true);
+    }
+    protected override void UpdateMotor(Vector3 input)
+    {
+        base.UpdateMotor(input);
+        if (moveDelta.x > 1 || moveDelta.x < -1 || moveDelta.y > 1 || moveDelta.y <-1)
+        {
+            if (timer.GetCycle()=="day")
+            {
+                animator.SetBool("dayActivTrigger", true);
+            }
+            else if (timer.GetCycle() == "night")
+            {
+                animator.SetBool("nightActivTrigger", true);
+            }
+
+        }
+        else
+        {
+            if (timer.GetCycle() == "day")
+            {
+                animator.SetBool("dayActivTrigger", false);
+                animator.SetBool("isDay", true);
+            }
+            else if (timer.GetCycle() == "night")
+            {
+                animator.SetBool("nightActivTrigger", false);
+                animator.SetBool("isDay", false);
+            }
+
+        }
     }
 }

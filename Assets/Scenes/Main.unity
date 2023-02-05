@@ -796,6 +796,86 @@ RectTransform:
   m_AnchoredPosition: {x: 2.3663998, y: -0.9333055}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &524206122
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 524206123}
+  - component: {fileID: 524206125}
+  - component: {fileID: 524206124}
+  m_Layer: 5
+  m_Name: Instruct
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &524206123
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 524206122}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.5695116, y: 0.5695116, z: 0.5695116}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1842844335}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 329, y: -132}
+  m_SizeDelta: {x: 371.7291, y: 99.3854}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &524206124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 524206122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 5329f9c6d99eb45309847379e70debb2, type: 3}
+    m_FontSize: 25
+    m_FontStyle: 0
+    m_BestFit: 1
+    m_MinSize: 4
+    m_MaxSize: 176
+    m_Alignment: 5
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Towers are your your friends :). Try to reach golden score level!
+--- !u!222 &524206125
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 524206122}
+  m_CullTransparentMesh: 1
 --- !u!224 &557206055 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8766681949190014041, guid: 1229bd8f9f078474d8eca875daab8b29, type: 3}
@@ -2022,10 +2102,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5753071303327484440, guid: e1da28d71f4622845a1a1b6dff35f4f4, type: 3}
+      propertyPath: m_Size.y
+      value: 0.18399215
+      objectReference: {fileID: 0}
+    - target: {fileID: 5753071303327484440, guid: e1da28d71f4622845a1a1b6dff35f4f4, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.011996079
+      objectReference: {fileID: 0}
+    - target: {fileID: 5753071303327484440, guid: e1da28d71f4622845a1a1b6dff35f4f4, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.2742857
+      objectReference: {fileID: 0}
+    - target: {fileID: 5753071303327484440, guid: e1da28d71f4622845a1a1b6dff35f4f4, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.2742857
+      objectReference: {fileID: 0}
     - target: {fileID: 5753071303327484441, guid: e1da28d71f4622845a1a1b6dff35f4f4, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5753071303327484442, guid: e1da28d71f4622845a1a1b6dff35f4f4, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a496fd6b6c8e49147958eb21a07d36a1, type: 3}
     - target: {fileID: 5753071303327484442, guid: e1da28d71f4622845a1a1b6dff35f4f4, type: 3}
       propertyPath: m_SortingLayer
       value: 1
@@ -2038,6 +2138,10 @@ PrefabInstance:
       propertyPath: bloodFx
       value: 
       objectReference: {fileID: 149344, guid: 617378de28fbaa64c96485d5b0d9169b, type: 3}
+    - target: {fileID: 5753071303327484443, guid: e1da28d71f4622845a1a1b6dff35f4f4, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 851610731}
     - target: {fileID: 5753071303327484443, guid: e1da28d71f4622845a1a1b6dff35f4f4, type: 3}
       propertyPath: hitpoint
       value: 200
@@ -2704,8 +2808,8 @@ MonoBehaviour:
   dayEnemy: {fileID: 21300000, guid: ef7dc8bdacaf85248862bec17e61dd58, type: 3}
   nightEnemy: {fileID: 21300000, guid: 6e6733688b7642a429f6ee3340261f17, type: 3}
   enemyObject: {fileID: 3068791987862674297, guid: 1f9687627481e45879ca52f96912616d, type: 3}
-  dayPlayer: {fileID: 0}
-  nightPlayer: {fileID: 0}
+  dayPlayer: {fileID: 21300000, guid: a496fd6b6c8e49147958eb21a07d36a1, type: 3}
+  nightPlayer: {fileID: 21300000, guid: 409e2dbf2b8106e4d8860f6f1b4250c2, type: 3}
   playerObject: {fileID: 1663731858}
   dayTower: {fileID: 21300000, guid: e401139c287f4be4796b310fbbe1b08f, type: 3}
   nightTower: {fileID: 21300000, guid: 597ef19b35dd60f40a9bb6ee30fd47be, type: 3}
