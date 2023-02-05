@@ -9,6 +9,7 @@ public class CheckTower : MonoBehaviour
     [SerializeField] Sprite daySprite;
     SpriteRenderer spriteRenderer;
 
+
     private void Start()
     {
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();

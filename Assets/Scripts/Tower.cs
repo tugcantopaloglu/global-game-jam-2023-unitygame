@@ -7,6 +7,7 @@ public class Tower : MonoBehaviour
     [SerializeField] float fireRate = 1f; // The fire rate of the tower
     [SerializeField] int damage = 50; // The damage dealt by the tower
     [SerializeField] Transform nightTarget;
+    [SerializeField] GameObject projectilePrefab;
     private float fireCountdown = 1f; // The countdown until the tower can fire again
     private CountDownTimer timer = new CountDownTimer();
     Animator animator;
@@ -96,6 +97,8 @@ public class Tower : MonoBehaviour
     void Shoot()
     {
         animator.SetTrigger("activTrigger");
+        Projectile projectile = new Projectile();
+
         Damage dmg = new Damage
         {
             damageAmount = damage,
@@ -106,10 +109,12 @@ public class Tower : MonoBehaviour
         if (timer.GetCycle() == "day")
         {
             dayTarget.SendMessage("ReceiveDamage", dmg);
+            projectile.SetTarget(dayTarget);
         }
         else if (timer.GetCycle() == "night")
         {
             nightTarget.SendMessage("ReceiveDamage", dmg);
+            projectile.SetTarget(nightTarget);
         }
         
     }
