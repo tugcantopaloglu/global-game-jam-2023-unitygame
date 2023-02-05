@@ -4,6 +4,8 @@ using UnityEngine.UI;
 public class StartGame : MonoBehaviour
 {
     public Canvas canvas;
+    [SerializeField] Text countDownText;
+    private static float currentScore = 0f;
 
     private void Start()
     {
@@ -14,6 +16,7 @@ public class StartGame : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            countDownText.text = ("Score: " + currentScore.ToString());
             canvas.gameObject.SetActive(false);
             Time.timeScale = 1;
         }
