@@ -33,6 +33,7 @@ public class CountDownTimer : MonoBehaviour
     bool isCycleRunning = false;
     public static string cycle = "day";
 
+    Projectile projectile = new Projectile();
 
     private void Start()
     {
@@ -44,6 +45,7 @@ public class CountDownTimer : MonoBehaviour
         audioSource.clip = dayAudio;
         audioSource.volume = 1f;
         audioSource.Play();
+        projectile.SetTarget(enemyObject.transform);
         cycle = "day";
         StartCoroutine(AddScore());
 
@@ -86,6 +88,7 @@ public class CountDownTimer : MonoBehaviour
             audioSource.clip = nightAudio;
             audioSource.volume = 0.6f;
             audioSource.Play();
+            projectile.SetTarget(playerObject.transform);
             cycle = "night";
         }
         else if (cycle == "night")
@@ -98,6 +101,7 @@ public class CountDownTimer : MonoBehaviour
             audioSource.clip = dayAudio;
             audioSource.volume = 1f;
             audioSource.Play();
+            projectile.SetTarget(enemyObject.transform);
             cycle = "day";
         }
 

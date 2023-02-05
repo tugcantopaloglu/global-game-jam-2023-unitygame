@@ -2,15 +2,20 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    public Transform target;
+    public static Transform projectileTarget;
     private void Update()
     {
         float speed = 10f;
-        transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, projectileTarget.position, speed * Time.deltaTime);
     }
 
     public void SetTarget(Transform target)
     {
-        this.target = target;
+        projectileTarget = target;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Destroy(gameObject);
     }
 }

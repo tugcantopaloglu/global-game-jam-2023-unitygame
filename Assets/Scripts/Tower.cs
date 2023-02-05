@@ -97,8 +97,7 @@ public class Tower : MonoBehaviour
     void Shoot()
     {
         animator.SetTrigger("activTrigger");
-        Projectile projectile = new Projectile();
-
+        GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
         Damage dmg = new Damage
         {
             damageAmount = damage,
@@ -109,12 +108,10 @@ public class Tower : MonoBehaviour
         if (timer.GetCycle() == "day")
         {
             dayTarget.SendMessage("ReceiveDamage", dmg);
-            projectile.SetTarget(dayTarget);
         }
         else if (timer.GetCycle() == "night")
         {
             nightTarget.SendMessage("ReceiveDamage", dmg);
-            projectile.SetTarget(nightTarget);
         }
         
     }
