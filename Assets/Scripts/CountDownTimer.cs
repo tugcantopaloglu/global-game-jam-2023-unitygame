@@ -8,6 +8,7 @@ public class CountDownTimer : MonoBehaviour
 {
     [SerializeField] Text countDownText;
     private static float currentScore = 0f;
+    [SerializeField] Image scoreImage;
     
     //Day night change
     [SerializeField] Sprite nightBackground;
@@ -41,6 +42,7 @@ public class CountDownTimer : MonoBehaviour
     private void Update()
     {
         countDownText.text = ("Score: " + currentScore.ToString());
+        
 
         if(!isCycleRunning)
         {
@@ -55,6 +57,7 @@ public class CountDownTimer : MonoBehaviour
         {
             yield return new WaitForSeconds(5f);
             currentScore += 10;
+            scoreImage.color = new Color(255f, 255f - currentScore / 100, 255f - currentScore / 10);
         }
         
     }

@@ -28,7 +28,6 @@ public class Player : Mover
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(hitpoint);
         healthBar.setHealth(hitpoint);
         if (Input.GetKeyDown(KeyCode.Space) && timer.GetScore()>=towerPrice) // If the spacebar is pressed
         {
