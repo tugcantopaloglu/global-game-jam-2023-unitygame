@@ -36,7 +36,17 @@ public class CountDownTimer : MonoBehaviour
 
     private void Start()
     {
+        backgroundObject.sprite = dayBackground;
+        backgroundObject.sortingOrder = -1;
+        enemyObject.sprite = dayEnemy;
+        playerObject.sprite = dayPlayer;
+        towerObject.sprite = dayTower;
+        audioSource.clip = dayAudio;
+        audioSource.volume = 1f;
+        audioSource.Play();
+        cycle = "day";
         StartCoroutine(AddScore());
+
     }
 
     private void Update()
